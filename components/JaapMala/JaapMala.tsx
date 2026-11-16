@@ -136,7 +136,7 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
 
         <button 
         className="reset-btn"
-        onClick={() => setShowJapaInfo(true)}
+
         >
           <Info/>
         </button>
