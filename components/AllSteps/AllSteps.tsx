@@ -47,7 +47,7 @@ const AllSteps = () => {
         japaSankalp={japaSankalp}
         />}
 
-    <section className='flex flex-col items-center gap-[var(--space-3)]'>
+    <section className='flex  flex-col items-center gap-[var(--space-3)]'>
         <button
         className='next-step-btn'
         onClick={() => 

@@ -134,13 +134,6 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
 
       <div className=" flex flex-col gap-2 absolute bottom-[30%] right-[10%]">
 
-        <button 
-        className="reset-btn"
-
-        >
-          <Info/>
-        </button>
-
         <Tooltip>
           <TooltipTrigger
           

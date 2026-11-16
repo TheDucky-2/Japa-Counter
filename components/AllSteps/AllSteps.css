@@ -1,6 +1,7 @@
 .all-steps-container{
     display: flex;
-    flex-direction: column  ;
+    flex-direction: column ;
+    height: 100vh;
 
 }
 
@@ -39,7 +40,7 @@
 }   
 
 .select-name-card{
-    background-color: var(--background);
+    background-color: var(--foreground);
     padding-inline: var(--space-1);
     padding-block: var(--space-2);
     border: 1px solid var(--chart-2);    
@@ -55,7 +56,7 @@
     cursor: pointer;
     transform: translateX(3px);
     transition: all 0.3s ease;
-    background-color: var(--saffron);
+    color: var(--saffron);
 }
 
 
@@ -65,15 +66,16 @@
     border: 1px solid var(--chart-4);
     width: max-content;
     padding-inline: var(--space-4);
-    padding-block: var(--space-1);
+    padding-block: var(--space-2);
     border-radius: 50px;
+    font-weight: 600;
     align-self: center;
     font-size: var(--text-);
-   
+    background-color: var(--background);
 }
 
 .next-step-btn:hover{
-    background-color: var(--bg-secondary);
+    background-color: var(--foreground);
     color: var(--text-secondary);
 
 
@@ -107,20 +109,20 @@
 }
 
 .japa-sankalp-card{
-    
+    color: var(--foreground);
     cursor: pointer;
-    background: var(--chart-5);
+    background: var(--background);
     align-items: center;
     display: flex;
     justify-content: center;
     height: 5rem;
     border-radius: 10px;
-    border:2px solid var(--gulabi);
+    border:1px solid var(--gulabi);
 }
 
 .japa-sankalp-card:hover{
     color: var(--gulabi);
-    border: 2px solid var(--chart-1);
+    border: 1px solid var(--chart-5);
     transition: all 0.2s ease;;
     scale: 1.05;
 
@@ -128,7 +130,7 @@
 
 .reset-btn{
     display: flex;
-    background-color: var(--background);
+    background-color: var(--foreground);
     align-items: center;
     padding-block: var(--space-1);
     padding-inline: var(--space-2);

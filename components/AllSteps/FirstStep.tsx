@@ -31,6 +31,7 @@ const FirstStep = ({selectedNaam, nextStep, setSelectedNaam}: FirstStepProps) =>
             type="radio"
             value={name.naam}
             checked={selectedNaam === name.naam}
+            
             onChange={(e) => {
                 setSelectedNaam(name.naam)
             }}
