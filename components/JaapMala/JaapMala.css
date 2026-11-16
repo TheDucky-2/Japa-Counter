@@ -1,0 +1,122 @@
+.naam{
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-dark);
+    max-width: 15ch;
+    text-align: center;
+}
+
+.naam-breathe {
+   max-width: 15ch;
+     animation: breathe 1s ease-in-out;
+  color: var(--text-dark);
+   font-size: var(--text-xl);
+   font-weight: 600;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.chant-btn {
+    background-color: var(--chart-5);
+    padding: var(--space-6);
+    border-radius: 100px;
+    align-items: center;
+    display: flex;
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.15),
+        0 0 15px rgba(255, 255, 255, 0.25);
+    transition: all 0.2s ease;
+}
+
+.chant-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+.chant-btn-img {
+    height: 60px;
+    width: auto;
+    opacity: 80%;
+
+}
+
+.reset-btn{
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--chart-5);
+    padding: var(--space-2) var(--space-2);
+    gap: var(--space-1);
+    color: var(--chart-6);
+
+    border: 1px solid var(--chart-4);
+}
+
+.reset-btn:hover{
+
+    transition: all 0.2s ease-in-out;
+    border-color: var(--chart-2);
+   transform: translateY(-2px);
+}
+
+.japa-info-card{
+
+    background-color: transparent;
+    border-radius: 10px;
+    width: 100%;
+    padding: var(--space-2);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.japa-info-container{
+    display: flex;
+    height: 100%;
+    background-color: var(--background);
+    align-items: center;
+    gap: var(--space-2);
+    border-radius: 10px;
+    width: 100%;
+    padding-inline: var(--space-2);
+    padding-block: var(--space-1);
+    border: 1px solid var(--chart-1);
+}
+
+.japa-info{
+    
+    width: 100%;
+    height: 100%;
+    font-size: var(--text-sm);
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    color: var(--saffron);
+    font-weight: 600;
+}
+
+.japa-info h3{
+    font-size: var(--text-lg);
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+.mala-icon{
+    height: 24px;
+    width: auto;
+}

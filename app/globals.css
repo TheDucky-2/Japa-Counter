@@ -1,26 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Krishna-inspired primary colors */
+  --krishna-blue: #172C55;
+  --krishna-deep: #0B1733;
+  --krishna-light: #294778;
+
+  /* Peacock colors */
+  --peacock-teal: #087E8B;
+  --peacock-green: #267D68;
+  --peacock-light: #65B7A7;
+
+  /* Vrindavan - Yamuna blues */
+  --yamuna-deep: #123B50;
+  --river-teal: #216779;
+  --evening-blue: #365F7C;
+  --water-mist: #8BAFBA;
+  --neel-blue: #253F68;
+  --monsoon-sky: #648BA5;
+  --blue-lotus: #647E9F;
+  --river-foam: #C4D8D5;
+
+  /* Vrindavan - Forest greens */
+  --kadamba-green: #355C3B;
+  --tulsi-green: #668653;
+  --vrindavan-leaf: #829B63;
+  --forest-moss: #526747;
+  --peacock-green-deep: #176B59;
+  --deep-grove: #1E4235;
+  --sage-leaf: #A3B18A;
+  --basil-mist: #C3CEAD;
+
+  /* Braj - Earth and temple colors */
+  --braj-mitti: #A77B55;
+  --braj-sandstone: #BC936C;
+  --chandan: #D6BB91;
+  --temple-sand: #E4D0AD;
+  --terracotta: #B66D4E;
+  --earth-brown: #72523B;
+  --parchment: #EFE2C8;
+  --old-temple: #D2B58A;
+
+  /* Radha - Flowers and lotus */
+  --radha-pink: #D58B9D;
+  --vrindavan-rose: #B96F82;
+  --lotus-blush: #E8BFC5;
+  --gulabi: #C77D9A;
+  --rosewood: #875469;
+  --mogra-white: #F8F2E6;
+  --vrindavan-lavender: #B2A0BD;
+  --flower-mauve: #96758F;
+
+  /* Peacock feather and divine accents */
+  --peacock-eye: #087E8B;
+  --feather-blue: #245B83;
+  --pitambar: #E5B83E;
+  --vrindavan-marigold: #E69B27;
+  --diya-gold: #E7B653;
+  --vrindavan-saffron: #D9823B;
+  --antique-brass: #A98243;
+  --flute-gold: #F1D58E;
+
+  /* Divine accents */
+  --divine-gold: #E7B653;
+  --gold-light: #F5D58B;
+  --saffron: #E98245;
+  --lotus-pink: #C76B85;
+
+  /* Neutral colors */
+  --temple-cream: #F5E8CB;
+  --warm-white: #FFF9EF;
+  --muted-cream: #D8CBAF;
+
+  /* Vrindavan theme - ready-to-use semantic colors */
+  --vrindavan-bg: #142D28;
+  --vrindavan-bg-secondary: #1E4235;
+  --vrindavan-card: #25483B;
+  --vrindavan-accent: #D7B66A;
+  --vrindavan-accent-secondary: #829B63;
+  --vrindavan-text: #F2E5C9;
+  --vrindavan-text-secondary: #B7C5A3;
+  --vrindavan-progress: #65A58B;
+  --vrindavan-favourite: #D58B9D;
+  --vrindavan-border: #47614D;
+
+  /* Backgrounds */
+  --bg-primary: #0B1733;
+  --bg-secondary: #172C55;
+  --bg-card: rgba(255, 249, 239, 0.07);
+  --bg-card-hover: rgba(255, 249, 239, 0.12);
+  --bg-light: rgba(255,255,255,0.2);
+
+  /* Text */
+  --text-primary: #FFF9EF;
+  --text-secondary: #D8CBAF;
+  --text-muted: #A5B2C9;
+  --text-dark: #302719;
+
+  /* Borders and shadows */
+  --border-subtle: rgba(231, 182, 83, 0.22);
+  --border-active: var(--divine-gold);
+  --shadow-gold: 0 0 25px rgba(231, 182, 83, 0.18);
+  --shadow-deep: 0 12px 35px rgba(0, 0, 0, 0.3);
+
+  /* Gradients */
+  --gradient-main: linear-gradient(
+    135deg,
+    #0B1733 0%,
+    #172C55 55%,
+    #087E8B 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    #F5D58B 0%,
+    #E7B653 100%
+  );
+
+  --gradient-saffron: linear-gradient(
+    135deg,
+    #E98245 0%,
+    #C76B85 100%
+  );
+
+  /* Vrindavan gradients */
+  --gradient-vrindavan: linear-gradient(
+    135deg,
+    #142D28 0%,
+    #1E4235 55%,
+    #216779 100%
+  );
+
+  --gradient-yamuna: linear-gradient(
+    135deg,
+    #123B50 0%,
+    #216779 55%,
+    #648BA5 100%
+  );
+
+  --gradient-forest: linear-gradient(
+    135deg,
+    #142D28 0%,
+    #355C3B 55%,
+    #668653 100%
+  );
+
+  --gradient-radha: linear-gradient(
+    135deg,
+    #302638 0%,
+    #875469 55%,
+    #D58B9D 100%
+  );
+
+  --gradient-braj: linear-gradient(
+    135deg,
+    #72523B 0%,
+    #A77B55 55%,
+    #D6BB91 100%
+  );
+
+  /* Typography */
+  --font-primary: 'DM Sans', sans-serif;
+  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Responsive typography */
+  --text-xs: clamp(0.7rem, 0.67rem + 0.15vw, 0.8rem);
+  --text-sm: clamp(0.8rem, 0.76rem + 0.2vw, 0.9rem);
+  --text-base: clamp(0.9rem, 0.85rem + 0.25vw, 1.05rem);
+  --text-lg: clamp(1.05rem, 0.98rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.2rem, 1.08rem + 0.6vw, 1.55rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  --text-3xl: clamp(1.8rem, 1.4rem + 1.7vw, 2.75rem);
+  --text-4xl: clamp(2.2rem, 1.6rem + 2.5vw, 3.75rem);
+  --text-5xl: clamp(2.7rem, 1.8rem + 4vw, 5rem);
+
+  /* Spacing */
+  --space-1: clamp(0.25rem, 0.2rem + 0.15vw, 0.375rem);
+  --space-2: clamp(0.5rem, 0.4rem + 0.25vw, 0.75rem);
+  --space-3: clamp(0.75rem, 0.6rem + 0.4vw, 1rem);
+  --space-4: clamp(1rem, 0.8rem + 0.6vw, 1.5rem);
+  --space-5: clamp(1.25rem, 1rem + 0.8vw, 2rem);
+  --space-6: clamp(1.5rem, 1.1rem + 1.2vw, 2.5rem);
+  --space-7: clamp(2rem, 1.4rem + 1.8vw, 3.5rem);
+  --space-8: clamp(2.5rem, 1.7rem + 2.5vw, 4.5rem);
+  --space-9: clamp(3rem, 2rem + 3vw, 5.5rem);
+  --space-10: clamp(4rem, 2.5rem + 4vw, 7rem);
+
+  /* shadcn theme */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+
+  /* Devotional chart colors */
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base styles */
+
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  height: 100%;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Devotional typography */
+
+.mantra-text {
+  font-family: var(--font-devanagari);
+  color: var(--gold-light);
+  line-height: 2;
+  text-align: center;
+}
+
+.section-title {
+  color: var(--divine-gold);
+  font-weight: 600;
+}
+
+.deity-image{
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+}
+
+/* Primary play button */
+
+.primary-btn{
+  display: flex;
+  background-color: var(--chart-5);
+  padding-inline: var(--space-3);
+  padding-block: var(--space-2);
+  font-size: var(--text-sm);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  border: 1px solid var(--chart-3);
+  font-weight: 600;
+}
+
+.primary-btn:hover{
+  transition: all 0.2s ease-in-out;
+  background: var(--gradient-main);
+  color: var(--text-primary);
+}
+
+.play-button {
+  background: var(--gradient-gold);
+  color: var(--krishna-deep);
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 16px 32px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-gold);
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(231, 182, 83, 0.35);
+}
+
+/* CONTAINERS */
+
+.main-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--space-3);
+  gap: var(--space-2);
+}
+
+.jaap-container{
+  background-color: var(--pitambar);
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  gap: var(--space-3);
+  padding-inline: var(--space-3);
+  padding-block: var(--space-3);
+}
+
+/* Secondary controls */
+
+.control-button {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 12px 20px;
+}
+
+.control-button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--divine-gold);
+}
+
+/* Progress bar */
+
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 249, 239, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #cecb14;
+  border-radius: var(--radius-full);
+}
+
+/* Volume slider */
+
+.input{
+  width:100%;
+  border-radius: 8px;
+  font-weight: 600;
+  padding-inline: var(--space-2);
+  padding-block: var(--space-1);
+  color: var(--text-secondary);
+background-color: var(--background);
+  border: 1px solid var(--ring);
+}
+
+input[type="range"] {
+  accent-color: var(--divine-gold);
+}
+
+.tooltip{
+  color: var(--divine-gold);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  background-color: var(--background);
+}
+
+.play-mantra-btn{
+  padding: var(--space-2);
+  border: none;
+  border-radius: 50px;
+}
+
+/* Decorative elements */
+
+.gold-divider {
+  height: 1px;
+  background: var(--gradient-gold);
+  opacity: 0.5;
+}
+
+.glow-gold {
+  box-shadow: var(--shadow-gold);
+}
+
+.text-gold {
+  color: var(--divine-gold);
+}
+
+.text-peacock {
+  color: var(--peacock-light);
+}
+
+/* Jaap counter */
+
+.jaap-counter {
+  color: var(--divine-gold);
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+/* HEADINGS*/
+
+.small-title{
+  font-size: var(--text-2xl);
+  font-weight: 600;
+}
+
+.mantra-list{
+  padding-inline: var(--space-2);
+  overflow-y: auto;
+
+}
+
+.mantra-list-item{
+  height: 60px;
+  align-items: center;
+  gap: var(--space-3);
+
+  display: flex;
+  font-size: var(--text-sm);
+  padding: var(--space-3);
+}
+
+.mantra-list-item:hover{
+  background-color: var(--chart-5);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.deity-card-container{
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-1);
+  padding-inline: var(--space-3);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  .deity-card-container{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+}
+
+}
+
+@media (max-width: 500px) {
+  .player-card {
+    padding: 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .deity-card-container{
+    display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+}
+
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --font-sans: var(--font-sans);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
 }
