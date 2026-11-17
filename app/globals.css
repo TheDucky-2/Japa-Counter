@@ -243,6 +243,7 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100vh;
 }
 
 body {
@@ -324,7 +325,8 @@ button {
 }
 
 .jaap-container{
-  background-color: var(--pitambar);
+  background-color: #FBF7EF;
+
   flex-direction: column;
   display: flex;
   min-height: 100vh;

@@ -3,11 +3,10 @@
 import React, { useState } from 'react'
 import "./AllSteps.css"
 import { HolyNames } from '@/data/holynames'
-import FirstStep from './FirstStep'
-import Link from 'next/link'
 import { MoveLeft, CircleArrowLeft } from 'lucide-react'
-import SecondStep from './SecondStep'
+import FirstStep from './FirstStep'
 import { useRouter } from 'next/navigation'
+import SecondStep from './SecondStep'
 
 const AllSteps = () => {
     const router = useRouter()
@@ -21,30 +20,16 @@ const AllSteps = () => {
 
   return (
     <div className='all-steps-container' >
-        <section className='header'>
 
-            {currentStep === 2 && <button 
-            onClick={() => setCurrentStep(currentStep - 1)}
-            className='go-back-btn'
-            >
-                <CircleArrowLeft size={28}/>
-               
-            </button>}
 
-            <span >
-                Step {currentStep} of {totalSteps}
-            </span>
-
-        </section>
-
-{currentStep === 1 &&        <FirstStep
-        selectedNaam={selectedNaam}
-        setSelectedNaam={setSelectedNaam}
-        nextStep={2}
-        />}
-{currentStep === 2 &&        <SecondStep
+{currentStep === 1 && <FirstStep
         setJapaSankalp={setJapaSankalp}
         japaSankalp={japaSankalp}
+        />}
+
+        {currentStep === 2 && <SecondStep
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
         />}
 
     <section className='flex  flex-col items-center gap-[var(--space-3)]'>
@@ -59,7 +44,7 @@ const AllSteps = () => {
             Continue
         </button>
 
-        {currentStep === 1 ? <p className='info-text'>Your chosen Naam will be used for today's Jaap.</p>: <p className='info-text'>
+        {currentStep === 1 ? <p className='info-text'>हर शुरुआत एक संकल्प है, हर एक जाप भक्ति है।</p>: <p className='info-text'>
             हर शुरुआत एक संकल्प है, हर एक जाप भक्ति है।</p>}
     </section>
 

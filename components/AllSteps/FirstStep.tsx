@@ -1,50 +1,76 @@
 import React, { SetStateAction } from 'react'
-import { useState } from 'react'
-import { HolyNames } from '@/data/holynames'
+import { JapaSankalpTarget } from '@/data/japacount'
+import { RotateCcw } from 'lucide-react'
+import DarshanMode from '../PhotoGallery/PhotoGallery'
 
-export type FirstStepProps = {
-    selectedNaam: string
-    setSelectedNaam: React.Dispatch<SetStateAction<string>>
-    nextStep: number
+export type FirstStepProps={
+  japaSankalp: number
+  setJapaSankalp: React.Dispatch<SetStateAction<number>>
 }
 
-const FirstStep = ({selectedNaam, nextStep, setSelectedNaam}: FirstStepProps) => {
+const FirstStep = ({japaSankalp, setJapaSankalp}: FirstStepProps) => {
 
+  console.log("Jap Sankalp", japaSankalp)
+
+  const handleReset = () => setJapaSankalp(0)
+  
 
   return (
-    <main className='main-container'>
+ <main className='main-container'>
         <div className='flex flex-col gap-[var(--space-2)]'>
             <h2>
-                Which Naam would you like to chant?
+                Set your Daily Jaap Sankalp
             </h2>
-            <p>Choose the divine name closest to your heart. Let every repetition be an offering of devotion.</p>
+            <p>How many times would you like to chant today? Set an intention and begin with devotion.</p>
         </div>
-        <div className='flex flex-col gap-2'>
-{       HolyNames.map((name) => (
-        <label
-        key={name.id}
-        className="select-name-card"
+        <div className='sankalp-card-container'>
+        {       JapaSankalpTarget.map((target) => (
+                <div
+                key={target.id}
+                className='japa-sankalp-card'
+                onClick={() => setJapaSankalp(target.count)}
 
-        >
+                >
+                  {target.count}
+                </div>
+        ))}
+                    
+        
+        </div>
+
+        <div className="flex items-center gap-3 w-full my-2">
+          <div className="flex-1 h-px bg-zinc-800"></div>
+
+          <p className="text-zinc-100 text-sm">or</p>
+
+          <div className="flex-1 h-px bg-zinc-800"></div>
+        </div>
+
+        <div className='flex flex-col gap-[var(--space-2)] w-full '>
+            <h2>
+                Enter a custom target
+            </h2>
+
+            <div className='flex w-full justify-between gap-1'> 
             <input 
-            name="naam"
-            type="radio"
-            value={name.naam}
-            checked={selectedNaam === name.naam}
-            
-            onChange={(e) => {
-                setSelectedNaam(name.naam)
-            }}
-        />
-            {name.naam}
+            min={0}
+            value={japaSankalp}
+            onChange={(e) => setJapaSankalp(Number(e.target.value))}
+            className='input' 
+            type="text" 
+            placeholder='100000'/>
 
-        </label>
-))}
-            
-
+            <button 
+            className='reset-btn'
+            onClick={handleReset}
+            >
+              <RotateCcw size={20}/>
+            </button>
+           </div>
         </div>
+         
     
-            </main>
+  </main>
 
   )
 }

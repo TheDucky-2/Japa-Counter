@@ -1,9 +1,12 @@
 .all-steps-container{
     display: flex;
     flex-direction: column ;
-    height: 100vh;
+    height: 100%;
+    gap: var(--space-3);
 
 }
+
+
 
 .all-steps-container .header{
     align-items: center;
@@ -85,12 +88,15 @@
     gap: var(--space-1);
     align-items: center;
     display: flex;
+    font-size: var(--text-sm);
     color: var(--bg-primary);
     font-weight: 600;
 }
 
 .go-back-btn:hover{
-    color: blue;
+    color: rgb(7, 109, 140);
+    transform: translateX(3px);
+    transition: transform 0.3s ease-in;
 }
 
 /* INFO TEXT */

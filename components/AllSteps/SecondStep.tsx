@@ -1,79 +1,181 @@
-import React, { SetStateAction } from 'react'
-import { JapaSankalpTarget } from '@/data/japacount'
-import { RotateCcw } from 'lucide-react'
+
+"use client";
+
+import React, { SetStateAction } from "react";
+import { useState }from "react";
+import { CircleArrowLeft } from "lucide-react";
 
 export type SecondStepProps={
-  japaSankalp: number
-  setJapaSankalp: React.Dispatch<SetStateAction<number>>
+  currentStep: number
+  setCurrentStep: React.Dispatch<SetStateAction<number>>
 }
 
-const SecondStep = ({japaSankalp, setJapaSankalp}: SecondStepProps) => {
-
-  console.log("Jap Sankalp", japaSankalp)
-
-  const handleReset = () => setJapaSankalp(0)
-  
+export default function SecondStep({currentStep, setCurrentStep}: SecondStepProps) {
+  const [showMeaning, setShowMeaning] = useState(true);
 
   return (
- <main className='main-container'>
-        <div className='flex flex-col gap-[var(--space-2)]'>
-            <h2>
-                Set your Daily Jaap Sankalp
-            </h2>
-            <p>How many times would you like to chant today? Set an intention and begin with devotion.</p>
-        </div>
-        <div className='sankalp-card-container'>
-        {       JapaSankalpTarget.map((target) => (
-                <div
-                key={target.id}
-                className='japa-sankalp-card'
-                onClick={() => setJapaSankalp(target.count)}
+    <section className="all-steps-container ">
+        <div className='header'>
 
-                >
-                  {target.count}
-                </div>
-        ))}
-                    
-        
-        </div>
-
-        <div className="flex items-center gap-3 w-full my-2">
-          <div className="flex-1 h-px bg-zinc-800"></div>
-
-          <p className="text-zinc-100 text-sm">or</p>
-
-          <div className="flex-1 h-px bg-zinc-800"></div>
-        </div>
-
-        <div className='flex flex-col gap-[var(--space-2)] w-full '>
-            <h2>
-                Enter a custom target
-            </h2>
-
-            <div className='flex w-full justify-between gap-1'> 
-            <input 
-            min={0}
-            value={japaSankalp}
-            onChange={(e) => setJapaSankalp(Number(e.target.value))}
-            className='input' 
-            type="text" 
-            placeholder='100000'/>
-
-            <button 
-            className='reset-btn'
-            onClick={handleReset}
+            {currentStep === 2 && <button 
+            onClick={() => setCurrentStep(currentStep - 1)}
+            className='go-back-btn'
             >
-              <RotateCcw size={20}/>
-            </button>
-           </div>
-
+                <CircleArrowLeft size={22}/>
+                Adjust Japa Goal
+               
+            </button>}
 
         </div>
+
+      <div className="relative overflow-auto rounded-3xl
+        border border-amber-800/60 bg-[#FBF7EF]
+        px-6 py-10 sm:px-10 shadow-sm flex-5">
+
+        {/* Decorative background */}
+        <div className="absolute -top-16 -right-16
+          h-48 w-48 rounded-full  blur-3xl" />
+
+        <div className="relative z-10 text-center">
+
+          {/* Label */}
+          <span className="inline-block rounded-full
+            border border-amber-300 px-4 py-1
+            text-xs tracking-[0.2em] text-amber-800">
+            DAILY PRAYER
+          </span>
+
+          {/* Heading */}
+          <h2 className="mt-6 text-amber-800
+            text-2xl sm:text-3xl font-serif">
+            ॥ श्री गुरवे नमः ॥
+          </h2>
+
+          <h3 className="mt-3 text-3xl font-semibold
+            tracking-wide text-stone-800">
+            Guru Vandana
+          </h3>
+
+          <p className="mt-2 text-sm text-stone-500">
+            A prayer of reverence to the Guru
+          </p>
+
+          <div className="my-8 h-px bg-amber-200" />
+
+          {/* Sanskrit */}
+          <div className="space-y-5">
+                          <div>
+            <p className="text-2xl sm:text-3xl
+              leading-relaxed text-stone-800
+              font-serif">
+                ध्यानमूलं गुरोर्मूर्तिः पूजामूलं गुरोः पदम् ।<br/>
+                मंत्रमूलं गुरोर्वाक्यं मोक्षमूलं गुरोः कृपा ।।
+            </p>
+
+            <p className="text-base sm:text-lg
+              leading-6 text-stone-700">
+                Dhyana mulam gurur murti
+                Puja mulam gurur padam
+            </p>
+
+            <p className="text-base sm:text-lg
+              leading-6 text-stone-700">
+              Mantra mulam gurur vaakyam
+              Moksha mulam gurur kripa
+            </p>
+            </div>
+
+            <div>
+            <p className="text-2xl sm:text-3xl
+              leading-relaxed text-stone-800
+              font-serif">
+              गुरूर्ब्रह्मा गुरूर्विष्णुः गुरूर्देवो महेश्वरः ।<br/>
+              गुरूर्साक्षात परब्रह्म तस्मै श्री गुरवे नमः ।।
+            </p>
+
+            <p className="text-base sm:text-lg
+              leading-6 text-stone-700">
+              Gururbrahmaa gururvishnur gururdevo
+              maheshwarah;
+            </p>
+
+            <p className="text-base sm:text-lg
+              leading-6 text-stone-700">
+              Guruh saakshaat param brahma
+              tasmai shree gurave namah.
+            </p>
+            </div>
+
+        
          
-    
-  </main>
+          </div>
 
-  )
+          <div className="my-8 h-px bg-amber-200" />
+
+          {/* Meaning toggle */}
+          <button
+            onClick={() => setShowMeaning(!showMeaning)}
+            className="text-amber-800 text-sm font-medium
+              hover:text-amber-600 transition"
+          >
+            {showMeaning ? "Hide Meaning −" : "Read Meaning +"}
+          </button>
+
+          {showMeaning && (
+            <div className="mt-5 animate-in fade-in duration-300">
+              <h4 className="text-lg font-semibold
+                text-stone-800">
+                Meaning
+              </h4>
+
+
+                              <p className="mt-3 text-sm sm:text-base
+                leading-7 text-stone-600">
+                  The Guru's form is the root of meditation;<br/>
+                  the Guru's feet are the root of worship; <br/>
+                  the Guru's word is the root of Mantra; <br/>
+                  and<br/> 
+                  the Guru's Grace is the root of liberation.
+              </p>
+              <p className="mt-3 text-sm sm:text-base
+                leading-7 text-stone-600">
+                The Guru is the creator (Brahma),
+                the preserver (Vishnu), and the
+                destroyer (Maheshvara). <br/>The Guru
+                is verily the Supreme Absolute.
+                <br/>To that revered Guru, I offer
+                my salutations.
+              </p>
+            
+            </div>
+          )}
+
+          {/* Attribution */}
+          <div className="mt-9 pt-5 border-t
+            border-amber-200/70">
+
+            <p className="text-xs text-stone-500">
+              Traditional Guru Stotram
+            </p>
+
+            <p className="mt-2 text-xs text-stone-500">
+              Reference:{" "}
+              <a
+                href="https://www.sivanandaonline.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-800 underline
+                  underline-offset-2"
+              >
+                The Divine Life Society
+              </a>
+            </p>
+
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
 }
-
-export default SecondStep

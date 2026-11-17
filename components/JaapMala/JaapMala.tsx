@@ -8,6 +8,7 @@ import { Check, CircleDot, Hash, Info, RotateCcw, ChartNoAxesColumnIncreasing  }
 import { Tooltip, TooltipContent } from "../ui/tooltip";
 import { TooltipTrigger } from "../ui/tooltip";
 import { Progress } from "../ui/progress";
+import HolyNameList from "../HolyNameList/HolyNameList";
 
 
 export type JaapMalaProps={
@@ -113,10 +114,12 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
 
         <h2 className={`absolute ${animate ? "naam-breathe" : "naam"}`}>{currentNaam}</h2>
       </div>
+      
 
+      <HolyNameList/>
 
       
-      <div className="flex gap-8 mt-10">
+      <div className="flex gap-3 mt-10">
       <button
         onClick={increment}
         className="chant-btn"
@@ -132,7 +135,7 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
       </button>
       </div>
 
-      <div className=" flex flex-col gap-2 absolute bottom-[30%] right-[10%]">
+      <div className=" flex flex-col gap-2 absolute bottom-[10%] right-[10%]">
 
         <Tooltip>
           <TooltipTrigger
