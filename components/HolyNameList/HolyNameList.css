@@ -1,19 +1,17 @@
 .holy-name-list{
-    background-color: var(--diya-gold);
+
     width: 100%;   
-    height: 50px;
-    border-radius: 50px;
-    padding-block: var(--space-1);
+    height: 55px;
+    font-size: var(--text-md);
     align-items: center;
     justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
-    color: var(--foreground);
      
 }
 
 .list-item{
-    height: 50px;
+    height: 40px;
     text-align: center;
     font-weight: 600;
     scroll-snap-align: start;

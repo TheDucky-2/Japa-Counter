@@ -18,7 +18,7 @@ const Jaap = () => {
 
 
   return (
-    <div className='jaap-container'>
+    <div className=''>
         <JaapMala
           currentNaam={String(currentNaam)}
           japaTarget={Number(japaTarget)}

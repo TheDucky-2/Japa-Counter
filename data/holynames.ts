@@ -9,7 +9,7 @@ export const HolyNames = [
         naam: "राधा",
 
     },
-            {
+        {
         id: 2,
         naam: "राम",
 

@@ -9,6 +9,7 @@ import { Tooltip, TooltipContent } from "../ui/tooltip";
 import { TooltipTrigger } from "../ui/tooltip";
 import { Progress } from "../ui/progress";
 import HolyNameList from "../HolyNameList/HolyNameList";
+import { useTheme } from "@/context/ThemeContext";
 
 
 export type JaapMalaProps={
@@ -23,6 +24,7 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
   const [japaCount, setJapaCount] = useState(0);
   const [malaCount, setMalaCount] = useState(0);
   const [animate, setAnimate] = useState<boolean>(false)
+  const {isDark} = useTheme()
  
   const beads = Array.from({ length: TOTAL }, (_, i) => {
     const angle = (i / TOTAL) * Math.PI * 2 - Math.PI / 2;
@@ -50,12 +52,14 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
   };
 
   return (
-    <div className=" flex relative flex-col items-center  min-h-[100vh]">
+    <div className="mala-container">
     { <div 
-      className="japa-info-card "
+      className="japa-info-container "
       >
-        <div className="japa-info-container">
-          <Hash size={24} color="black"/>
+        <div className="japa-info-card border dark:border-amber-300/60 
+        border-amber-900
+        ">
+          <Hash size={24}/>
           <div className="japa-info">
             <span>Japa</span> 
               <h3>{japaCount}</h3>
@@ -63,9 +67,12 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
         </div>
         
 
-        <div className="japa-info-container">
+        <div className="japa-info-card
+        
+        border dark:border-amber-300/60 
+        border-amber-900">
           <Image
-          src="/mala.png"
+          src={isDark ? "/white-mala.png" : "/mala.png"}
           alt="mala"
           height={200}
           width={300}
@@ -77,8 +84,11 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
           </div>
         </div>
 
-        <div className="japa-info-container">
-          <ChartNoAxesColumnIncreasing color="black" size={24}/>
+        <div className="japa-info-card
+        
+        border dark:border-amber-300/60 
+        border-amber-900">
+          <ChartNoAxesColumnIncreasing  size={24}/>
           <div className="japa-info">
             <span>Total</span>
              <h3>{japaCount}</h3>
@@ -88,7 +98,7 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
       </div>}
 
       <div className=" relative w-full items-center justify-center flex">
-        <svg viewBox="0 0 320 320" width="380">
+        <svg viewBox="0 0 320 320" width="320">
           {beads.map((bead, i) => (
             <circle
               key={i}
@@ -119,7 +129,7 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
       <HolyNameList/>
 
       
-      <div className="flex gap-3 mt-10">
+      <div className="flex items-center justify-center gap-3 mt-5">
       <button
         onClick={increment}
         className="chant-btn"
@@ -133,25 +143,6 @@ export default function JaapMala({currentNaam, japaTarget}: JaapMalaProps) {
 
         />
       </button>
-      </div>
-
-      <div className=" flex flex-col gap-2 absolute bottom-[10%] right-[10%]">
-
-        <Tooltip>
-          <TooltipTrigger
-          
-          render={ <button 
-            onClick={() => setJapaCount(0)}
-            className="reset-btn">
-            <RotateCcw size={24}/>
-          </button>}
-          />
-          <TooltipContent className={`tooltip`}>
-            Reset Japa Count
-          </TooltipContent>
-
-      
-        </Tooltip>
       </div>
 
     </div>

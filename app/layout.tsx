@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { JaapProvider } from "@/context/JaapContext";
+import { ThemeProvider } from "@/context/ThemeContext";
+import Script from "next/script";
+import Navbar from "@/components/Navbar/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,10 +28,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+
+        <Script
+        id="theme-init"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+        __html: `try{if(localStorage.getItem("theme")==="dark")document.documentElement.classList.add("dark")}catch(e){}`,
+  }}
+/>
+      </head>
       <body className="min-h-full flex flex-col">
-        <TooltipProvider>
-          {children}
-        </TooltipProvider>
+        <ThemeProvider>
+          <JaapProvider>
+            <TooltipProvider>
+           
+              {children}
+              <Navbar/>
+            </TooltipProvider>
+          </JaapProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

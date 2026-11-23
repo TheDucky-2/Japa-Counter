@@ -4,7 +4,7 @@ export type JapaSankalpTarget = {
 }
 
 export const JapaSankalpTarget = [
-    {id: 1,
+    {   id: 1,
         count: 108
     },
         {id: 2,

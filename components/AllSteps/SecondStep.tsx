@@ -3,7 +3,7 @@
 
 import React, { SetStateAction } from "react";
 import { useState }from "react";
-import { CircleArrowLeft } from "lucide-react";
+import { CircleArrowLeft, MoveLeft } from "lucide-react";
 
 export type SecondStepProps={
   currentStep: number
@@ -14,27 +14,26 @@ export default function SecondStep({currentStep, setCurrentStep}: SecondStepProp
   const [showMeaning, setShowMeaning] = useState(true);
 
   return (
-    <section className="all-steps-container ">
+    <section className="main-container">
         <div className='header'>
 
             {currentStep === 2 && <button 
             onClick={() => setCurrentStep(currentStep - 1)}
             className='go-back-btn'
             >
-                <CircleArrowLeft size={22}/>
+                <MoveLeft size={22}/>
                 Adjust Japa Goal
                
             </button>}
 
         </div>
 
-      <div className="relative overflow-auto rounded-3xl
-        border border-amber-800/60 bg-[#FBF7EF]
-        px-6 py-10 sm:px-10 shadow-sm flex-5">
+      <div className="relative overflow-y-auto rounded-3xl
+        border border-amber-800 px-6 py-10 sm:px-10 shadow-sm flex-5">
 
         {/* Decorative background */}
-        <div className="absolute -top-16 -right-16
-          h-48 w-48 rounded-full  blur-3xl" />
+        <div className="absolute  
+           rounded-full  blur-3xl" />
 
         <div className="relative z-10 text-center">
 

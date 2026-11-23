@@ -1,34 +1,39 @@
 import React, { SetStateAction } from 'react'
 import { JapaSankalpTarget } from '@/data/japacount'
 import { RotateCcw } from 'lucide-react'
-import DarshanMode from '../PhotoGallery/PhotoGallery'
 
 export type FirstStepProps={
-  japaSankalp: number
-  setJapaSankalp: React.Dispatch<SetStateAction<number>>
+    jaapTarget: number
+    setJaapTarget: React.Dispatch<SetStateAction<number>>
+    customTarget : number
+    setCustomTarget: React.Dispatch<SetStateAction<number>>
+    hasCustomTarget: boolean
+    setHasCustomTarget: React.Dispatch<SetStateAction<boolean>>
 }
 
-const FirstStep = ({japaSankalp, setJapaSankalp}: FirstStepProps) => {
+const FirstStep = ({jaapTarget, setJaapTarget, 
+  customTarget, setCustomTarget}: FirstStepProps) => {
 
-  console.log("Jap Sankalp", japaSankalp)
-
-  const handleReset = () => setJapaSankalp(0)
+  const handleReset = () => {
+    setJaapTarget(0)
+    setCustomTarget(0)
+  } 
   
 
   return (
  <main className='main-container'>
-        <div className='flex flex-col gap-[var(--space-2)]'>
-            <h2>
-                Set your Daily Jaap Sankalp
+        <div className='flex flex-col gap-[var(--space-4)]'>
+            <h2 className=''>
+                Set your Jaap Sankalp for Today
             </h2>
-            <p>How many times would you like to chant today? Set an intention and begin with devotion.</p>
+            <h3> Set an intention and begin with devotion.</h3>
         </div>
         <div className='sankalp-card-container'>
         {       JapaSankalpTarget.map((target) => (
                 <div
                 key={target.id}
                 className='japa-sankalp-card'
-                onClick={() => setJapaSankalp(target.count)}
+                onClick={() => setJaapTarget(target.count)}
 
                 >
                   {target.count}
@@ -39,23 +44,23 @@ const FirstStep = ({japaSankalp, setJapaSankalp}: FirstStepProps) => {
         </div>
 
         <div className="flex items-center gap-3 w-full my-2">
-          <div className="flex-1 h-px bg-zinc-800"></div>
+          <div className="flex-1 h-px bg-zinc-800/50"></div>
 
           <p className="text-zinc-100 text-sm">or</p>
 
-          <div className="flex-1 h-px bg-zinc-800"></div>
+          <div className="flex-1 h-px bg-zinc-800/50"></div>
         </div>
 
         <div className='flex flex-col gap-[var(--space-2)] w-full '>
-            <h2>
+            <h3>
                 Enter a custom target
-            </h2>
+            </h3>
 
             <div className='flex w-full justify-between gap-1'> 
             <input 
             min={0}
-            value={japaSankalp}
-            onChange={(e) => setJapaSankalp(Number(e.target.value))}
+            value={customTarget}
+            onChange={(e) => setCustomTarget!(Number(e.target.value))}
             className='input' 
             type="text" 
             placeholder='100000'/>

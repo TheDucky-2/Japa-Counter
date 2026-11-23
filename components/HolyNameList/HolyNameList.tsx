@@ -40,7 +40,7 @@ const HolyNameList = () => {
     console.log(selected)
   return (
     <ul 
-    className='holy-name-list'
+    className='holy-name-list bg-amber-900 text-zinc-100'
     ref={listRef}
     onScroll={handleScroll}
 

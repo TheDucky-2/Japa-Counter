@@ -97,7 +97,7 @@
   --bg-light: rgba(255,255,255,0.2);
 
   /* Text */
-  --text-primary: #FFF9EF;
+  --text-primary: #000000;
   --text-secondary: #D8CBAF;
   --text-muted: #A5B2C9;
   --text-dark: #302719;
@@ -232,8 +232,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-}
+  --foreground: oklch(0.145 0 0);}
 
 /* Base styles */
 
@@ -243,7 +242,7 @@
 
 html {
   scroll-behavior: smooth;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 body {
@@ -320,19 +319,19 @@ button {
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-block: var(--space-3);
-  gap: var(--space-2);
+  padding-top: var(--space-2);
+  gap: var(--space-6);
 }
 
 .jaap-container{
-  background-color: #FBF7EF;
-
+  background-color: var(--background);
   flex-direction: column;
-  display: flex;
-  min-height: 100vh;
-  gap: var(--space-3);
-  padding-inline: var(--space-3);
-  padding-block: var(--space-3);
+  display: grid;
+  grid-template-rows: 1fr max(15vh, 15%);
+  height: 100%;
+  gap: var(--space-6);
+  padding-inline: var(--space-5);
+  padding-top: var(--space-3);
 }
 
 /* Secondary controls */
@@ -374,13 +373,14 @@ button {
   font-weight: 600;
   padding-inline: var(--space-2);
   padding-block: var(--space-1);
-  color: var(--text-dark);
+  color: var(--old-temple);
   background-color: var(--background);
-  border: 1px solid var(--ring);
+  border: 1px solid var(--border-subtle);
+
 }
 
 input[type="range"] {
-  accent-color: var(--divine-gold);
+  accent-color: var(--old-temple);
 }
 
 .tooltip{
@@ -530,40 +530,166 @@ input[type="range"] {
   --font-sans: var(--font-sans);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
-}
+/* =========================================
+   NAAM JAPA — DARK THEME
+   Krishna's Evening
+========================================= */
 
+.dark {
+  color-scheme: dark;
+
+  --krishna-blue: #192942;
+  --krishna-deep: #101B2D;
+  --krishna-light: #365574;
+
+  --peacock-teal: #347F83;
+  --peacock-green: #34765F;
+  --peacock-light: #73B7A5;
+
+  /* Vrindavan greens */
+  --kadamba-green: #42684E;
+  --tulsi-green: #668B69;
+  --sage-leaf: #A3B18A;
+  --basil-mist: #C3CEAD;
+
+  /* Temple and sandalwood */
+  --braj-mitti: #A77B55;
+  --chandan: #BFA477;
+  --temple-sand: #D4C2A0;
+  --parchment: #E8DCC3;
+  --warm-white: #F5EFE3;
+  --temple-cream: #E9DFC9;
+
+  /* Lotus accents */
+  --radha-pink: #D58B9D;
+  --lotus-blush: #E8BFC5;
+  --rosewood: #B07B91;
+
+  /* Divine gold */
+  --divine-gold: #D8B66A;
+  --gold-light: #EBD49A;
+  --pitambar: #E5B83E;
+  --flute-gold: #F1DDA9;
+
+  /* Backgrounds */
+  --bg-primary: #101B2D;
+  --bg-secondary: #192942;
+  --bg-card: #233952;
+  --bg-card-hover: #2C4560;
+  --bg-light: #365574;
+
+  /* Text */
+  --text-primary: #F5EFE3;
+  --text-secondary: #C5CDBD;
+  --text-muted: #9BAEBA;
+  --text-dark: #293A32;
+
+  /* Semantic colors */
+  --background: #0e0f11;
+  --foreground: #F5EFE3;
+  --card: #192942;
+  --card-foreground: #F5EFE3;
+
+  --popover: #192942;
+  --popover-foreground: #F5EFE3;
+
+  --primary: #D8B66A;
+  --primary-foreground: #192942;
+
+  --secondary: #233952;
+  --secondary-foreground: #F5EFE3;
+
+  --muted: #233952;
+  --muted-foreground: #B1BECA;
+
+  --accent: #2C4560;
+  --accent-foreground: #F5EFE3;
+
+  --destructive: #E17878;
+
+  --border: rgba(216, 182, 106, 0.18);
+  --input: rgba(216, 182, 106, 0.22);
+  --ring: #D8B66A;
+
+  /* Borders and shadows */
+  --border-subtle: rgba(216, 182, 106, 0.20);
+  --border-active: #D8B66A;
+
+  --shadow-gold: 0 0 24px rgba(216, 182, 106, 0.16);
+  --shadow-deep: 0 12px 35px rgba(0, 0, 0, 0.3);
+
+  /* Gradients */
+  --gradient-main: linear-gradient(
+    135deg,
+    #101B2D 0%,
+    #192942 55%,
+    #24565D 100%
+  );
+
+  --gradient-gold: linear-gradient(
+    135deg,
+    #EBD49A 0%,
+    #D8B66A 100%
+  );
+
+  --gradient-saffron: linear-gradient(
+    135deg,
+    #C98550 0%,
+    #B4778C 100%
+  );
+
+  --gradient-vrindavan: linear-gradient(
+    135deg,
+    #142D28 0%,
+    #254C3D 55%,
+    #347F83 100%
+  );
+
+  --gradient-yamuna: linear-gradient(
+    135deg,
+    #123B50 0%,
+    #216779 55%,
+    #648BA5 100%
+  );
+
+  --gradient-forest: linear-gradient(
+    135deg,
+    #142D28 0%,
+    #355C3B 55%,
+    #668653 100%
+  );
+
+  --gradient-radha: linear-gradient(
+    135deg,
+    #302638 0%,
+    #875469 55%,
+    #D58B9D 100%
+  );
+
+  --gradient-braj: linear-gradient(
+    135deg,
+    #72523B 0%,
+    #A77B55 55%,
+    #D6BB91 100%
+  );
+
+  /* Chart colors */
+  --chart-1: #73B7A5;
+  --chart-2: #D8B66A;
+  --chart-3: #668B69;
+  --chart-4: #D58B9D;
+  --chart-5: #648BA5;
+
+  /* Sidebar */
+  --sidebar: #192942;
+  --sidebar-foreground: #F5EFE3;
+  --sidebar-primary: #D8B66A;
+  --sidebar-primary-foreground: #192942;
+  --sidebar-accent: #233952;
+  --sidebar-accent-foreground: #F5EFE3;
+  --sidebar-border: rgba(216, 182, 106, 0.18);
+  --sidebar-ring: #D8B66A;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
