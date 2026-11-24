@@ -1,12 +1,13 @@
 import React, { SetStateAction, useState } from 'react'
 import { JapaSankalpTarget } from '@/data/japacount'
-import { Flower2, HandHeart, Pencil, RotateCcw } from 'lucide-react'
+import { Flower, Flower2, HandHeart, Pencil, PencilSparkles, RotateCcw } from 'lucide-react'
 import { useTheme } from '@/context/ThemeContext'
 
 /** CSS Variables */
-const borderColor="dark:border-zinc-500 border-zinc-800/30"
-const separatorColor = "dark:bg-zinc-500/30 bg-zinc-800/10"
+const borderColor="dark:border-zinc-500/40 border-zinc-800/30"
+const separatorColor = "dark:bg-zinc-500/40 bg-zinc-800/10"
 const sectionGap = "gap-[var(--space-3)]"
+const iconColor="text-[#da65d3]"
 
 
 export type FirstStepProps={
@@ -37,9 +38,9 @@ const FirstStep = ({jaapTarget, setJaapTarget,
             Your Jaap Sankalp for Today
         </h2>
 
-        <section className={`flex flex-col ${sectionGap} w-full `}>
-          <h3 className='flex gap-2 items-center'> 
-            <Flower2 size={14} className='text-yellow-400'/>
+        <section className={`flex flex-col ${sectionGap} w-full relative pt-4 `}>
+          <h3 className='flex gap-2 px-7 items-center'> 
+            <Flower size={22} className={`${iconColor} left-0 absolute top-1`}/>
             Set an intention and begin with devotion.</h3>
           <div className='sankalp-card-container'>
         {       JapaSankalpTarget.map((target) => (
@@ -65,10 +66,10 @@ const FirstStep = ({jaapTarget, setJaapTarget,
           <div className={`flex-1 h-px ${separatorColor}`}></div>
         </section>
 
-        <section className={`flex flex-col ${sectionGap} w-full `}>
-            <h3 className='flex gap-2 items-center'>
-                <Pencil size={14} className='text-yellow-400'/>
-                Enter a custom target
+        <section className={`flex flex-col ${sectionGap} w-full relative pt-4 `}>
+            <h3 className='flex gap-2 px-7 items-center'>
+                <PencilSparkles size={22} className={`${iconColor} left-0 absolute top-1`}/>
+                Enter a custom goal
             </h3>
 
             <div className="flex flex-col"> 
@@ -91,10 +92,6 @@ const FirstStep = ({jaapTarget, setJaapTarget,
                   <RotateCcw size={16}/>
                 </button>
               </div>
-
-            
-          
-
            </div>
         </section>
          

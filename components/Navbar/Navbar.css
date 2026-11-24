@@ -8,6 +8,7 @@
     position: fixed;
     bottom: 0;
     z-index: 9999;
+    background-color: var(--card-background);
 }
 
 .nav-link{

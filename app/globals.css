@@ -198,7 +198,7 @@
   --space-10: clamp(4rem, 2.5rem + 4vw, 7rem);
 
   /* shadcn theme */
-  --card: oklch(1 0 0);
+  --card-background: #fffdf5;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
@@ -414,7 +414,7 @@ h3{
   font-weight: 600;
   padding-inline: var(--space-2);
   padding-block: var(--space-1);
-  background-color: var(--background);
+    background-color: var(--card-background);
 
 }
 
@@ -626,8 +626,9 @@ input[type="range"] {
   /* Semantic colors */
   --background: #0e0f11;
   --foreground: #F5EFE3;
-  --card: #192942;
+  --card-background: #2c2a2a;
   --card-foreground: #F5EFE3;
+  --card-border: rgba(70, 69, 69, 1);
 
   --popover: #192942;
   --popover-foreground: #F5EFE3;
@@ -639,7 +640,7 @@ input[type="range"] {
   --secondary-foreground: #F5EFE3;
 
   --muted: #233952;
-  --muted-foreground: #B1BECA;
+  --muted-foreground: #989292;
 
   --accent: #2C4560;
   --accent-foreground: #F5EFE3;

@@ -6,6 +6,8 @@ import { JaapProvider } from "@/context/JaapContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import Script from "next/script";
 import Navbar from "@/components/Navbar/Navbar";
+import { BabelizeProvider } from "@babelize/sdk/react";
+import LanguageSelectorProvider from "@/components/LanguageSelector/LanguageSelectorProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,14 +40,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 />
       </head>
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>
-          <JaapProvider>
-            <TooltipProvider>
-              {children}
-              <Navbar/>
-            </TooltipProvider>
-          </JaapProvider>
-        </ThemeProvider>
+       <LanguageSelectorProvider>
+          <ThemeProvider>
+            <JaapProvider>
+              <TooltipProvider>
+                {children}
+                <Navbar/>
+              </TooltipProvider>
+            </JaapProvider>
+          </ThemeProvider>
+      </LanguageSelectorProvider>
       </body>
     </html>
   );

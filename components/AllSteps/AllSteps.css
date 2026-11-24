@@ -133,15 +133,18 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    background-color: var(--card-background);
     height: 5rem;
     font-weight: 600;
     border-radius: 10px;
 }
 
-.japa-sankalp-card:hover{
-    color: var(--gulabi);
+.japa-sankalp-card:hover,
+.japa-sankalp-card:focus
+{
+    color: var(--pitambar);
     transition: all 0.2s ease;
-    border:1px solid var(--gulabi);
+    border:1px solid var(--old-temple);
     scale: 1.05;
 }
 

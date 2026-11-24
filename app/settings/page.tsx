@@ -1,5 +1,6 @@
 'use client'
 
+import LanguageSelector from '@/components/LanguageSelector/LanguageSelector'
 import ChangeThemeToggle from '@/components/Toggle/ChangeTheme'
 import React from 'react'
 
@@ -14,6 +15,11 @@ const Settings = () => {
                     <h3>Change Theme</h3>
 
                     <ChangeThemeToggle/>
+                </div>
+                <div className='flex justify-between items-center w-full'>
+                    <h3>Select Language</h3>
+
+                    <LanguageSelector/>
                 </div>
             </ul>
         </section>
