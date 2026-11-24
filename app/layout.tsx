@@ -29,7 +29,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-
         <Script
         id="theme-init"
         strategy="beforeInteractive"
@@ -42,7 +41,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ThemeProvider>
           <JaapProvider>
             <TooltipProvider>
-           
               {children}
               <Navbar/>
             </TooltipProvider>

@@ -1,6 +1,13 @@
-import React, { SetStateAction } from 'react'
+import React, { SetStateAction, useState } from 'react'
 import { JapaSankalpTarget } from '@/data/japacount'
-import { RotateCcw } from 'lucide-react'
+import { Flower2, HandHeart, Pencil, RotateCcw } from 'lucide-react'
+import { useTheme } from '@/context/ThemeContext'
+
+/** CSS Variables */
+const borderColor="dark:border-zinc-500 border-zinc-800/30"
+const separatorColor = "dark:bg-zinc-500/30 bg-zinc-800/10"
+const sectionGap = "gap-[var(--space-3)]"
+
 
 export type FirstStepProps={
     jaapTarget: number
@@ -12,67 +19,84 @@ export type FirstStepProps={
 }
 
 const FirstStep = ({jaapTarget, setJaapTarget, 
-  customTarget, setCustomTarget}: FirstStepProps) => {
-
+  customTarget, setCustomTarget, setHasCustomTarget}: FirstStepProps) => {
+    
   const handleReset = () => {
     setJaapTarget(0)
     setCustomTarget(0)
   } 
+
+  const [error, setError] = useState<string>("")
   
 
   return (
  <main className='main-container'>
-        <div className='flex flex-col gap-[var(--space-4)]'>
-            <h2 className=''>
-                Set your Jaap Sankalp for Today
-            </h2>
-            <h3> Set an intention and begin with devotion.</h3>
-        </div>
-        <div className='sankalp-card-container'>
+        
+        <h2 className={`flex gap-2 items-center`}>
+           <HandHeart size={24} className='text-pink-400'/>
+            Your Jaap Sankalp for Today
+        </h2>
+
+        <section className={`flex flex-col ${sectionGap} w-full `}>
+          <h3 className='flex gap-2 items-center'> 
+            <Flower2 size={14} className='text-yellow-400'/>
+            Set an intention and begin with devotion.</h3>
+          <div className='sankalp-card-container'>
         {       JapaSankalpTarget.map((target) => (
                 <div
                 key={target.id}
-                className='japa-sankalp-card'
+                className={`japa-sankalp-card border ${borderColor}`}
                 onClick={() => setJaapTarget(target.count)}
 
                 >
                   {target.count}
                 </div>
         ))}
+        </div>
                     
         
-        </div>
+        </section>
 
-        <div className="flex items-center gap-3 w-full my-2">
-          <div className="flex-1 h-px bg-zinc-800/50"></div>
+        <section className="flex items-center gap-3 w-full my-2">
+          <div className={`flex-1 h-px ${separatorColor}`}></div>
 
           <p className="text-zinc-100 text-sm">or</p>
 
-          <div className="flex-1 h-px bg-zinc-800/50"></div>
-        </div>
+          <div className={`flex-1 h-px ${separatorColor}`}></div>
+        </section>
 
-        <div className='flex flex-col gap-[var(--space-2)] w-full '>
-            <h3>
+        <section className={`flex flex-col ${sectionGap} w-full `}>
+            <h3 className='flex gap-2 items-center'>
+                <Pencil size={14} className='text-yellow-400'/>
                 Enter a custom target
             </h3>
 
-            <div className='flex w-full justify-between gap-1'> 
-            <input 
-            min={0}
-            value={customTarget}
-            onChange={(e) => setCustomTarget!(Number(e.target.value))}
-            className='input' 
-            type="text" 
-            placeholder='100000'/>
+            <div className="flex flex-col"> 
+            
+              <div className='flex w-full justify-between gap-1'>
+                <input 
+                min={0}
+                value={customTarget}
+                onChange={(e) => {
+                
+                  setHasCustomTarget(true)
+                  setCustomTarget(Number(e.target.value))}}
+                className={`input border ${borderColor}`}
+                type="number" 
+                placeholder='100000'/>
+                            <button 
+                className={`reset-btn hover:bg-zinc-700 border ${borderColor}`}
+                onClick={handleReset}
+                >
+                  <RotateCcw size={16}/>
+                </button>
+              </div>
 
-            <button 
-            className='reset-btn'
-            onClick={handleReset}
-            >
-              <RotateCcw size={20}/>
-            </button>
+            
+          
+
            </div>
-        </div>
+        </section>
          
     
   </main>

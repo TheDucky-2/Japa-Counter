@@ -12,12 +12,25 @@
 
 .nav-link{
     border: none;
-        padding-block: var(--space-3);
+    padding-block: var(--space-4);
     display: flex;
+    flex-direction: column;
+    font-size: var(--text-xs);
     align-items: center;
     justify-content: center;
     width: 100%;
     cursor: pointer;
+}
+
+
+.nav-link.active::after{
+    content: "";
+    width: 8px;
+    height: 8px;
+    background-color: var(--pitambar);
+    border-radius: 50px;
+    position: absolute;
+    bottom: 10%;
 }
 
 .toggle-theme{
@@ -26,4 +39,8 @@
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+.navlink-icon{
+    color: var(--text-secondary);
 }

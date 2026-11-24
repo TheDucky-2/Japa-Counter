@@ -18,12 +18,10 @@ const Jaap = () => {
 
 
   return (
-    <div className=''>
         <JaapMala
           currentNaam={String(currentNaam)}
           japaTarget={Number(japaTarget)}
         />
-    </div>
   )
 }
 

@@ -63,34 +63,34 @@ export default function SecondStep({currentStep, setCurrentStep}: SecondStepProp
 
           {/* Sanskrit */}
           <div className="space-y-5">
-                          <div>
-            <p className="text-2xl sm:text-3xl
-              leading-relaxed text-stone-800
+            <div>
+            <h4 className="
+              leading-relaxed dark:text-yellow-300
               font-serif">
                 ध्यानमूलं गुरोर्मूर्तिः पूजामूलं गुरोः पदम् ।<br/>
                 मंत्रमूलं गुरोर्वाक्यं मोक्षमूलं गुरोः कृपा ।।
-            </p>
+            </h4>
 
-            <p className="text-base sm:text-lg
-              leading-6 text-stone-700">
+            <p className="
+              leading-6 dark:text-zinc-100 text-zinc-400">
                 Dhyana mulam gurur murti
                 Puja mulam gurur padam
             </p>
 
-            <p className="text-base sm:text-lg
-              leading-6 text-stone-700">
+            <p className="
+              leading-6 ">
               Mantra mulam gurur vaakyam
               Moksha mulam gurur kripa
             </p>
             </div>
 
             <div>
-            <p className="text-2xl sm:text-3xl
-              leading-relaxed text-stone-800
+            <h4 className="
+              leading-relaxed dark:text-yellow-300
               font-serif">
               गुरूर्ब्रह्मा गुरूर्विष्णुः गुरूर्देवो महेश्वरः ।<br/>
               गुरूर्साक्षात परब्रह्म तस्मै श्री गुरवे नमः ।।
-            </p>
+            </h4>
 
             <p className="text-base sm:text-lg
               leading-6 text-stone-700">

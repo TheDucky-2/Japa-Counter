@@ -45,7 +45,7 @@ const AllSteps = () => {
         />}
         
 
-    <section className='flex  flex-col items-center gap-[var(--space-3)] w-full'>
+    <section className='flex  flex-col items-center gap-[var(--space-5)] w-full'>
         <button
         className='next-step-btn bg-yellow-500 dark:bg-yellow-600 '
         onClick={() => 
@@ -56,7 +56,7 @@ const AllSteps = () => {
             Continue
         </button>
 
-        { <p className='info-text '>हर शुरुआत एक संकल्प है, हर एक जाप भक्ति है।</p>}
+        { <p className='info-text dark:text-blue-300/90 text-blue-800 '>हर शुरुआत एक संकल्प है, हर एक जाप भक्ति है।</p>}
     </section>
 
     </div>

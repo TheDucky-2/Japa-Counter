@@ -3,7 +3,6 @@
     flex-direction: column ;
     height: 100%;
     gap: var(--space-3);
-    padding-inline: var(--space-4);
 }   
 
 
@@ -116,9 +115,8 @@
 /* INFO TEXT */
 
 .info-text{
-    color: var(--text-secondary);
     font-size: var(--text-xs);
-
+    font-weight: 600;
 }
 
 /* Japa Sankalp Card*/
@@ -130,7 +128,7 @@
 }
 
 .japa-sankalp-card{
-    color:var(--chart-4);
+    color:var(--text-primary);
     cursor: pointer;
     align-items: center;
     display: flex;
@@ -138,27 +136,32 @@
     height: 5rem;
     font-weight: 600;
     border-radius: 10px;
-    border:1px solid var(--border-subtle);
 }
 
 .japa-sankalp-card:hover{
-    color: var(--chart-4);
-    border: 1px solid var(--chart-4);
-    transition: all 0.2s ease;;
+    color: var(--gulabi);
+    transition: all 0.2s ease;
+    border:1px solid var(--gulabi);
     scale: 1.05;
 }
 
 .reset-btn{
     display: flex;
-    background-color: var(--background);
-    align-items: center;
-    border: 1px solid var(--border-subtle);
     padding-block: var(--space-1);
     padding-inline: var(--space-2);
     border-radius: 8px;
-    color: var(--muted-foreground);
+    align-items: center;
+    background-color: var(--background);
 }
 
+.reset-btn:hover{
+
+    background-color: var(--border-subtle);
+}
+
+.error{
+    color: var(--destructive);
+}
 
 @media(max-width: 500px){
     .sankalp-card-container{
